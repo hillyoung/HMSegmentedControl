@@ -969,12 +969,14 @@ NSUInteger HMSegmentedControlNoSegment = (NSUInteger)-1;
             i++;
         }
         
-        rectForSelectedIndex = CGRectMake(offsetter,
-                                          0,
-                                          [[self.segmentWidthsArray objectAtIndex:index] floatValue],
-                                          self.frame.size.height);
-        
-        selectedSegmentOffset = (CGRectGetWidth(self.frame) / 2) - ([[self.segmentWidthsArray objectAtIndex:index] floatValue] / 2);
+        if (self.segmentWidthsArray.count > index) {
+            rectForSelectedIndex = CGRectMake(offsetter,
+                                              0,
+                                              [[self.segmentWidthsArray objectAtIndex:index] floatValue],
+                                              self.frame.size.height);
+            
+            selectedSegmentOffset = (CGRectGetWidth(self.frame) / 2) - ([[self.segmentWidthsArray objectAtIndex:index] floatValue] / 2);
+        }
     }
     
     
