@@ -313,6 +313,10 @@ NSUInteger HMSegmentedControlNoSegment = (NSUInteger)-1;
     if (self.accessibilityElements==nil)
         self.accessibilityElements = [NSMutableArray arrayWithCapacity:0];
     
+    if (self.segmentWidthsArray.count == 0 && self.sectionTitles.count == 0 && self.sectionImages.count == 0) {
+        return;
+    }
+    
     if (self.type == HMSegmentedControlTypeText) {
         [self removeTitleBackgroundLayers];
         [self.sectionTitles enumerateObjectsUsingBlock:^(id titleString, NSUInteger idx, BOOL *stop) {
